@@ -1,1 +1,324 @@
-# CURSODASEMANA
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini Curso: Do Zero aos Investimentos em 1 Semana</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+    body {
+      background-color: #0f172a;
+      color: #f8fafc;
+      padding: 24px 16px;
+      display: flex;
+      justify-content: center;
+    }
+    .container {
+      width: 100%;
+      max-width: 760px;
+      background-color: #1e293b;
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    }
+    header {
+      margin-bottom: 24px;
+      border-bottom: 1px solid #334155;
+      padding-bottom: 16px;
+    }
+    h1 {
+      font-size: 1.6rem;
+      color: #38bdf8;
+      margin-bottom: 8px;
+    }
+    p.subtitle {
+      color: #94a3b8;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    .progress-box {
+      margin: 20px 0;
+      background: #0f172a;
+      padding: 16px;
+      border-radius: 12px;
+      border: 1px solid #334155;
+    }
+    .progress-labels {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    .progress-bar {
+      height: 10px;
+      background: #334155;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #38bdf8, #22c55e);
+      transition: width 0.3s ease;
+    }
+    .day-card {
+      background: #0f172a;
+      border: 1px solid #334155;
+      border-radius: 12px;
+      padding: 18px;
+      margin-bottom: 18px;
+    }
+    .day-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    .day-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #f1f5f9;
+    }
+    .day-tag {
+      font-size: 0.75rem;
+      background-color: #0369a1;
+      color: #e0f2fe;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-weight: 600;
+    }
+    .day-description {
+      font-size: 0.85rem;
+      color: #94a3b8;
+      margin-bottom: 12px;
+    }
+    .task-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .task-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: #1e293b;
+      padding: 12px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.2s;
+    }
+    .task-item:hover {
+      background: #273549;
+    }
+    .task-item input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      margin-top: 2px;
+      accent-color: #22c55e;
+      cursor: pointer;
+    }
+    .task-content {
+      flex: 1;
+    }
+    .task-title {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: #f8fafc;
+      transition: color 0.2s;
+    }
+    .task-meta {
+      font-size: 0.8rem;
+      color: #64748b;
+      margin-top: 2px;
+    }
+    .task-item.completed .task-title {
+      text-decoration: line-through;
+      color: #64748b;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1>Checklist: Desafio 1 Semana de Educação Financeira</h1>
+      <p class="subtitle">
+        Dedique 1 hora por dia de segunda a sexta para aprender a base dos investimentos e sair na frente da grande maioria.
+      </p>
+    </header>
+
+    <div class="progress-box">
+      <div class="progress-labels">
+        <span>Progresso Semanal</span>
+        <span id="progress-percent">0%</span>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+    </div>
+
+    <!-- SEGUNDA-FEIRA -->
+    <div class="day-card">
+      <div class="day-header">
+        <span class="day-title">Segunda-feira: Tesouro Direto</span>
+        <span class="day-tag">1 Hora</span>
+      </div>
+      <div class="day-description">Entenda os títulos públicos do governo, a base mais segura da renda fixa.</div>
+      <div class="task-list">
+        <label class="task-item">
+          <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+          <div class="task-content">
+            <div class="task-title">Aula 1: O que é o Tesouro Direto e como funciona a Selic</div>
+            <div class="task-meta">Buscar no YouTube: "O que é Tesouro Direto para iniciantes" (~30 min)</div>
+          </div>
+        </label>
+        <label class="task-item">
+          <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+          <div class="task-content">
+            <div class="task-title">Aula 2: Diferença entre Tesouro Selic, IPCA+ e Prefixado</div>
+            <div class="task-meta">Buscar no YouTube: "Como escolher título do Tesouro Direto" (~30 min)</div>
+          </div>
+        </label>
+      </div>
+    </div>
+
+    <!-- TERÇA-FEIRA -->
+    <div class="day-card">
+      <div class="day-header">
+        <span class="day-title">Terça-feira: CDBs e Renda Fixa Privada</span>
+        <span class="day-tag">1 Hora</span>
+      </div>
+      <div class="day-description">Descubra como emprestar dinheiro para bancos e a garantia do FGC.</div>
+      <div class="task-list">
+        <label class="task-item">
+          <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+          <div class="task-content">
+            <div class="task-title">Aula 1: O que é CDB, CDI e o papel do FGC (Fundo Garantidor de Créditos)</div>
+            <div class="task-meta">Buscar no YouTube: "O que é CDB e liquidez diária" (~30 min)</div>
+          </div>
+        </label>
+        <label class="task-item">
+          <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+          <div class="task-content">
+            <div class="task-title">Aula 2: Como comparar CDB com Poupança e taxas na prática</div>
+            <div class="task-meta">Buscar no YouTube: "CDB 100% CDI vale a pena na prática" (~30 min)</div>
+          </div>
+        </label>
+      </div>
+    </div>
+
+    <!-- QUARTA-FEIRA -->
+    <div class="day-card">
+      <div class="day-header">
+        <span class="day-title">Quarta-feira: Fundos Imobiliários (FIIs)</span>
+        <span class="day-tag">1 Hora</span>
+      </div>
+      <div class="day-description">Aprenda como se tornar "dono" de imóveis e receber aluguéis mensais isentos.</div>
+      <div class="task-list">
+        <label class="task-item">
+          <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+          <div class="task-content">
+            <div class="task-title">Aulão: Fundos Imobiliários do Zero aos Primeiros Rendimentos</div>
+            <div class="task-meta">Buscar no YouTube: "Aulão completo Fundos Imobiliários iniciante" (~40 a 60 min)</div>
+          </div>
+        </label>
+      </div>
+    </div>
+
+    <!-- QUINTA-FEIRA -->
+    <div class="day-card">
+      <div class="day-header">
+        <span class="day-title">Quinta-feira: Criptomoedas e Bitcoin</span>
+        <span class="day-tag">1 Hora</span>
+      </div>
+      <div class="day-description">Entenda a tecnologia da blockchain, escassez digital e gestão de risco.</div>
+      <div class="task-list">
+        <label class="task-item">
+          <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+          <div class="task-content">
+            <div class="task-title">Aula 1: O que é Bitcoin e como funciona o Blockchain</div>
+            <div class="task-meta">Buscar no YouTube: "O que é Bitcoin e como funciona blockchain" (~30 min)</div>
+          </div>
+        </label>
+        <label class="task-item">
+          <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+          <div class="task-content">
+            <div class="task-title">Aula 2: Cuidados, carteiras (wallets) e corretoras cripto</div>
+            <div class="task-meta">Buscar no YouTube: "Como começar em criptomoedas com segurança" (~30 min)</div>
+          </div>
+        </label>
+      </div>
+    </div>
+
+    <!-- SEXTA-FEIRA -->
+    <div class="day-card">
+      <div class="day-header">
+        <span class="day-title">Sexta-feira: Mercado de Ações</span>
+        <span class="day-tag">1 Hora</span>
+      </div>
+      <div class="day-description">Descubra como se tornar sócio das maiores empresas do país e do mundo.</div>
+      <div class="task-list">
+        <label class="task-item">
+          <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+          <div class="task-content">
+            <div class="task-title">Aula 1: O que é uma Ação e como a Bolsa de Valores (B3) funciona</div>
+            <div class="task-meta">Buscar no YouTube: "Como funciona a bolsa de valores para iniciantes" (~30 min)</div>
+          </div>
+        </label>
+        <label class="task-item">
+          <input type="checkbox" class="task-checkbox" onchange="updateProgress()">
+          <div class="task-content">
+            <div class="task-title">Aula 2: Dividendos, valorização e pensamento de longo prazo</div>
+            <div class="task-meta">Buscar no YouTube: "O que são dividendos e como lucrar com ações" (~30 min)</div>
+          </div>
+        </label>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function updateProgress() {
+      const checkboxes = document.querySelectorAll('.task-checkbox');
+      let checkedCount = 0;
+
+      checkboxes.forEach((cb, idx) => {
+        const item = cb.closest('.task-item');
+        if (cb.checked) {
+          checkedCount++;
+          item.classList.add('completed');
+          localStorage.setItem('task_' + idx, 'true');
+        } else {
+          item.classList.remove('completed');
+          localStorage.removeItem('task_' + idx);
+        }
+      });
+
+      const total = checkboxes.length;
+      const percentage = Math.round((checkedCount / total) * 100);
+
+      document.getElementById('progress-percent').innerText = percentage + '%';
+      document.getElementById('progress-fill').style.width = percentage + '%';
+    }
+
+    // Carregar progresso salvo no navegador
+    window.addEventListener('DOMContentLoaded', () => {
+      const checkboxes = document.querySelectorAll('.task-checkbox');
+      checkboxes.forEach((cb, idx) => {
+        if (localStorage.getItem('task_' + idx) === 'true') {
+          cb.checked = true;
+          cb.closest('.task-item').classList.add('completed');
+        }
+      });
+      updateProgress();
+    });
+  </script>
+</body>
+</html>
